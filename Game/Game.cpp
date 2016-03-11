@@ -1,10 +1,12 @@
 #define GLEW_STATIC
 #include "Game.h"
-#include "Errors.h"
-#include "GLSLProgram.h"
-#include "Sprite.h"
+#include "Auxiliar/Errors.h"
+#include "GL/GLSLProgram.h"
+#include "Basic/Sprite.h"
 #include <stdio.h>
 #include <iostream>
+#include <string>
+#include "Auxiliar/Paths.h"
 
 GLushort Game::ScreenWidth = 800;
 GLushort Game::ScreenHeight = 600;
@@ -69,7 +71,7 @@ void Game::m_initSystems()
 void Game::m_initShaders()
 {
     m_colorProgram = new GLSLProgram;
-    m_colorProgram->compileShaders("E:/Projects/C++/GLFW/OpenGLProject/Shaders/colorShading.vert", "E:/Projects/C++/GLFW/OpenGLProject/Shaders/colorShading.frag");
+    m_colorProgram->compileShaders((path + "/OpenGLProject/Shaders/colorShading.vert").c_str(), (path + "/OpenGLProject/Shaders/colorShading.frag").c_str());
     m_colorProgram->addAttribute("vertexPos");
     m_colorProgram->addAttribute("vertexColor");
     m_colorProgram->linkShaders();

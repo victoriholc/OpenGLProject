@@ -13,7 +13,8 @@ bool IOManager::readFileToBuffer(const char *filePath, std::vector<char> &buffer
     //Seek to the end of the file
     file.seekg(0, std::ios::end);
     //Get the file size
-    int fileSize = file.tellg();
+    //streamoff is a typdef of one the fundamental signed integral types large enough to represent the maximum possible file size supported by the system.
+    std::streamoff fileSize = file.tellg();
     file.seekg(0, std::ios::beg);
     //Reduce the file size by any header bytes that might be present
     fileSize -= file.tellg();

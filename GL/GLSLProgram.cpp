@@ -1,6 +1,6 @@
 #define GLEW_STATIC
 #include "GLSLProgram.h"
-#include "Errors.h"
+#include "Auxiliar/Errors.h"
 #include <fstream>
 #include <string>
 #include <vector>

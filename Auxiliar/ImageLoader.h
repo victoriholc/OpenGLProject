@@ -1,7 +1,7 @@
 #ifndef IMAGELOADER_H
 #define IMAGELOADER_H
 
-#include "GLTexture.h"
+#include "GL/GLTexture.h"
 
 class ImageLoader
 {
