@@ -12,7 +12,7 @@
     #define GetCurrentDir getcwd
 #endif
 
-extern const std::string &getProjectPath()
+extern std::string getProjectPath()
 {
     char cCurrentPath[FILENAME_MAX];
 

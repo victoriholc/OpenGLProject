@@ -1,12 +1,13 @@
 #define GLEW_STATIC
 #include "Game.h"
 #include "Auxiliar/Errors.h"
-#include "GL/GLSLProgram.h"
+#include "Auxiliar/Paths.h"
+#include "Auxiliar/ImageLoader.h"
 #include "Basic/Sprite.h"
+#include "GL/GLSLProgram.h"
 #include <stdio.h>
 #include <iostream>
 #include <string>
-#include "Auxiliar/Paths.h"
 
 GLushort Game::ScreenWidth = 800;
 GLushort Game::ScreenHeight = 600;
@@ -30,6 +31,7 @@ void Game::run()
     m_initSystems();
     m_tmpSprite = new Sprite(-1.0f, -1.0f, 2.0f, 2.0f);
     m_tmpSprite->draw();
+    m_playerTexture = ImageLoader::loadPNG((getProjectPath() + "/Textures/PNG/Enemys/Enemy_Snowman1.png").c_str());
     m_loop();
 }
 
@@ -71,7 +73,7 @@ void Game::m_initSystems()
 void Game::m_initShaders()
 {
     m_colorProgram = new GLSLProgram;
-    m_colorProgram->compileShaders((path + "/OpenGLProject/Shaders/colorShading.vert").c_str(), (path + "/OpenGLProject/Shaders/colorShading.frag").c_str());
+    m_colorProgram->compileShaders((getProjectPath() + "/OpenGLProject/Shaders/colorShading.vert").c_str(), (getProjectPath() + "/OpenGLProject/Shaders/colorShading.frag").c_str());
     m_colorProgram->addAttribute("vertexPos");
     m_colorProgram->addAttribute("vertexColor");
     m_colorProgram->linkShaders();

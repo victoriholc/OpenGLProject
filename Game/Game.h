@@ -4,6 +4,7 @@
 #include <GL/glew.h>
 #include <GLFW/glfw3.h>
 #include "Basic/StateBase.h"
+#include "GL/GLTexture.h"
 
 class Sprite;
 class GLSLProgram;
@@ -28,6 +29,7 @@ private:
     GLFWwindow *m_window;
     GameState m_currentGameState;
     Sprite *m_tmpSprite;
+    GLTexture m_playerTexture;
     GLSLProgram *m_colorProgram;
     float m_time;
 

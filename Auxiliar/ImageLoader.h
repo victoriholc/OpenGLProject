@@ -6,7 +6,7 @@
 class ImageLoader
 {
 public:
-    GLTexture loadPNG(const char *filePath);
+    static GLTexture loadPNG(const char *filePath);
 };
 
 #endif // IMAGELOADER_H

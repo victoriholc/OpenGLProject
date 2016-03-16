@@ -6,8 +6,8 @@
 struct GLTexture
 {
     GLuint id;
-    GLushort width;
-    GLushort height;
+    GLulong width;
+    GLulong height;
 };
 
 #endif // GLTEXTURE
