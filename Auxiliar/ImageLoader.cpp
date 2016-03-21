@@ -10,8 +10,6 @@ GLTexture ImageLoader::loadPNG(const char *filePath)
 {
     GLTexture texture = {};
 
-    printf("%s\n");
-
     std::vector<unsigned char> input;
     std::vector<unsigned char> output;
     unsigned long width, height;

@@ -4,8 +4,7 @@
 
 bool IOManager::readFileToBuffer(const char *filePath, std::vector<unsigned char> &buffer)
 {
-    std::cout << filePath;
-    std::fstream file(filePath, std::ios::binary);
+    std::fstream file(filePath, std::ios::in|std::ios::binary|std::ios::ate);
     if (file.fail())
     {
         perror(filePath);

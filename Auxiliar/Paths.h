@@ -25,6 +25,7 @@ extern std::string getProjectPath()
 
     std::replace(path.begin(), path.end(), '\\', '/');
     path.erase(path.find_last_of('/'));
+    path.append("/OpenGLProject");
     return path;
 }
 
