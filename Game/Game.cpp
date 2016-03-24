@@ -108,8 +108,10 @@ void Game::m_draw()
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
     m_colorProgram->use();
-    glActiveTexture(GL_TEXTURE(0));
+    glActiveTexture(GL_TEXTURE0);
     glBindTexture(GL_TEXTURE_2D, m_playerTexture.id);
+    GLint textureLocation = m_colorProgram->getUniformLocation("textureSampler");
+    glUniform1i(textureLocation, 0);
 
     GLint timeUniformLocation = m_colorProgram->getUniformLocation("time");
     glUniform1f(timeUniformLocation, m_time);

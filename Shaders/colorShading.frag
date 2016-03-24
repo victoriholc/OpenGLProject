@@ -21,9 +21,15 @@ void main()
 //                 fragmentColor.b + (cos(fragmentPos.x * 0.4 + time) + 1.0) / 2,
 //                 fragmentColor.a);
 
-    vec3 textureColor = texture(textureSampler, fragmentUV);
+    vec4 textureColor = texture2D(textureSampler, fragmentUV);
 
-    color = textureColor * fragmentColor;
+    //Just show the texture
+//    color = textureColor * fragmentColor;
+    //The texture plus color shading handling
+    color = vec4(fragmentColor.r + (cos(fragmentPos.x + time) + 1.0) / 2,
+                 fragmentColor.g + (cos(fragmentPos.y + time) + 1.0) / 2,
+                 fragmentColor.b + (cos(fragmentPos.x * 0.4 + time) + 1.0) / 2,
+                 fragmentColor.a) * textureColor;
 
 //    color = vec4(fragmentColor.r + (cos(fragmentPos.x + time) + 1.0) / 2,
 //                 fragmentColor.g + (cos(fragmentPos.y + time) + 1.0) / 2,
