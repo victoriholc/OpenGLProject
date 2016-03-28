@@ -37,7 +37,9 @@ HEADERS += \
     Auxiliar/IOManager.h \
     Auxiliar/ImageLoader.h \
     Auxiliar/PicoPNG.h \
-    Auxiliar/Paths.h
+    Auxiliar/Paths.h \
+    Auxiliar/ResourceManager.h \
+    Cache/TextureCache.h
 
 SOURCES += main.cpp \
     Game/Game.cpp \
@@ -47,4 +49,6 @@ SOURCES += main.cpp \
     Auxiliar/Errors.cpp \
     Auxiliar/IOManager.cpp \
     Auxiliar/PicoPNG.cpp \
-    Auxiliar/ImageLoader.cpp
+    Auxiliar/ImageLoader.cpp \
+    Auxiliar/ResourceManager.cpp \
+    Cache/TextureCache.cpp

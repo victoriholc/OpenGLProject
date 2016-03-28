@@ -1,11 +1,12 @@
 #define GLEW_STATIC
 #include "Sprite.h"
 #include "Vertex.h"
+#include "Auxiliar/ResourceManager.h"
 #include <cstddef>
 
 
-Sprite::Sprite(const float &x, const float &y, const float &width, const float &height) :
-    m_x(x), m_y(y), m_width(width), m_height(height)
+Sprite::Sprite(const char *texturePath, const float &x, const float &y, const float &width, const float &height) :
+    m_texture(ResourceManager::getTexture(texturePath)), m_x(x), m_y(y), m_width(width), m_height(height)
 {
     glGenBuffers(1, &m_vboID);
 
@@ -46,6 +47,7 @@ Sprite::~Sprite()
 
 void Sprite::draw()
 {
+    glBindTexture(GL_TEXTURE_2D, m_texture.id);
     glBindBuffer(GL_ARRAY_BUFFER, m_vboID);
 
     glEnableVertexAttribArray(0);

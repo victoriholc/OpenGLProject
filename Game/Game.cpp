@@ -29,9 +29,9 @@ Game::~Game()
 void Game::run()
 {
     m_initSystems();
-    m_tmpSprite = new Sprite(-1.0f, -1.0f, 2.0f, 2.0f);
+    //m_tmpSprite = new Sprite(-1.0f, -1.0f, 2.0f, 2.0f);
     //m_tmpSprite->draw();
-    m_playerTexture = ImageLoader::loadPNG((getProjectPath() + "/Textures/PNG/Enemys/Enemy_Snowman1.png").c_str());
+    //m_playerTexture = ImageLoader::loadPNG((getProjectPath() + "/Textures/PNG/Enemys/Enemy_Snowman1.png").c_str());
     m_loop();
 }
 
@@ -109,7 +109,7 @@ void Game::m_draw()
 
     m_colorProgram->use();
     glActiveTexture(GL_TEXTURE0);
-    glBindTexture(GL_TEXTURE_2D, m_playerTexture.id);
+    //glBindTexture(GL_TEXTURE_2D, m_playerTexture.id);
     GLint textureLocation = m_colorProgram->getUniformLocation("textureSampler");
     glUniform1i(textureLocation, 0);
 

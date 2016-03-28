@@ -2,15 +2,17 @@
 #define SPRITE_H
 
 #include <GL/glew.h>
+#include "GL/GLTexture.h"
 
 class Sprite
 {
 public:
-    Sprite(const float &x, const float &y, const float &width, const float &height);
+    Sprite(const char *texturePath, const float &x, const float &y, const float &width, const float &height);
     ~Sprite();
 
     void draw();
 private:
+    GLTexture m_texture;
     float m_x;
     float m_y;
     float m_width;

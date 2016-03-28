@@ -29,7 +29,6 @@ private:
     GLFWwindow *m_window;
     GameState m_currentGameState;
     Sprite *m_tmpSprite;
-    GLTexture m_playerTexture;
     GLSLProgram *m_colorProgram;
     float m_time;
 
