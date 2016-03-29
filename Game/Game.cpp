@@ -14,12 +14,13 @@ GLushort Game::ScreenHeight = 600;
 
 Game::Game() :
     m_window(nullptr), m_currentGameState(GameState::PLAY),
-    m_tmpSprite(nullptr), m_colorProgram(nullptr), m_time(0.0f)
+    m_colorProgram(nullptr), m_time(0.0f)
 {}
 
 Game::~Game()
 {
-    delete m_tmpSprite;
+    for (int i = 0; i < m_sprites.size(); ++i)
+        delete m_sprites[i];
     delete m_colorProgram;
     glfwSetWindowShouldClose(m_window, GL_TRUE);
     glfwDestroyWindow(m_window);
@@ -29,9 +30,8 @@ Game::~Game()
 void Game::run()
 {
     m_initSystems();
-    //m_tmpSprite = new Sprite(-1.0f, -1.0f, 2.0f, 2.0f);
-    //m_tmpSprite->draw();
-    //m_playerTexture = ImageLoader::loadPNG((getProjectPath() + "/Textures/PNG/Enemys/Enemy_Snowman1.png").c_str());
+    m_sprites.push_back(new Sprite((getProjectPath() + "/Textures/PNG/Enemys/Enemy_Snowman1.png").c_str(), -1.0f, -1.0f, 1.0f, 1.0f));
+    m_sprites.push_back(new Sprite((getProjectPath() + "/Textures/PNG/Enemys/Enemy_Snowman1.png").c_str(), 0.0f, -1.0f, 1.0f, 1.0f));
     m_loop();
 }
 
@@ -116,7 +116,8 @@ void Game::m_draw()
     GLint timeUniformLocation = m_colorProgram->getUniformLocation("time");
     glUniform1f(timeUniformLocation, m_time);
 
-    m_tmpSprite->draw();
+    for (int i = 0; i < m_sprites.size(); ++i)
+        m_sprites[i]->draw();
 
     glBindTexture(GL_TEXTURE_2D, 0);
     m_colorProgram->unuse();

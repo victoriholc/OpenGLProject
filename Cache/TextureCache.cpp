@@ -1,5 +1,6 @@
 #include "TextureCache.h"
 #include "Auxiliar/ImageLoader.h"
+#include <stdio.h>
 
 TextureCache::TextureCache()
 {
@@ -18,11 +19,14 @@ GLTexture TextureCache::getTexture(const char *filePath)
     if (iterator == m_textureMap.end())
     {
         GLTexture newTexture = ImageLoader::loadPNG(filePath);
-        std::pair<const char*, GLTexture> newPair(filePath, newTexture);
         m_textureMap.insert({filePath, newTexture});
+
+        printf("Loaded texture...\n");
 
         return newTexture;
     }
+
+    printf("Loaded cached texture...\n");
     return iterator->second;
 }
 

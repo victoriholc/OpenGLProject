@@ -3,6 +3,7 @@
 
 #include <GL/glew.h>
 #include <GLFW/glfw3.h>
+#include <vector>
 #include "Basic/StateBase.h"
 #include "GL/GLTexture.h"
 
@@ -28,7 +29,7 @@ public:
 private:
     GLFWwindow *m_window;
     GameState m_currentGameState;
-    Sprite *m_tmpSprite;
+    std::vector<Sprite *> m_sprites;
     GLSLProgram *m_colorProgram;
     float m_time;
 
